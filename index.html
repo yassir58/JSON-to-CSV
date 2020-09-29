@@ -38,11 +38,18 @@
     margin-bottom: 20px;
     margin-top: 30px;
         }
-        .btn-erea {
+        .btn-erea-intro {
             display: flex;
+            justify-content: center;
+        }
+        .btn-erea {
+          
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             justify-content: center;
 
         }
+       
         header {
             background-color:#222831;
             display: grid;
@@ -91,6 +98,26 @@ font-style:italic ;
 textarea {
     font-size: 1.1rem;
 }
+@media  (max-width: 600px){
+    .intro {
+        width:70%;
+    }
+    textarea {
+        width: 80%;
+    }
+    .input-erea {
+       display: grid;
+       grid-template-columns: repeat(auto-fit,minmax(200px,auto));
+    }
+    .csv-erea {
+        display: flex;
+        justify-content: center;
+    }
+    .json-erea {
+        display: flex;
+        justify-content: center;
+    }
+}
 
         </style>
         <header>
@@ -100,7 +127,7 @@ textarea {
             <h1>CSV and JSON converter</h1>
             <p style="font-style: italic;">use this tool to convert your csv file to an json format and vice versa </p>
            
-           <div class="btn-erea">
+           <div class="btn-erea-intro">
             <button id="show_csv" class="btn btn-dark"> to JSON</button>
             <button id="show_json" class="btn btn-outline-dark">to CSV</button>
            </div>
@@ -114,7 +141,7 @@ textarea {
         <textarea name="input" id="csv_input" cols="30" rows="10" placeholder=
         ></textarea>
     <div class="btn-erea">
-        <button id="tojson-btn" class="btn btn-primary"> convert to JSON</button>
+        <button id="tojson-btn" class="btn btn-primary"> convert </button>
     <button class="btn btn-primary btn-sm"  style="color: white;height: 33px;" onClick="document.location.reload(true)"><i class="fas fa-undo-alt"></i></button>
     <input type="file" id="csv_file" onchange="readCSV()">
     <label id="imp_csv" for="csv_file"  class="btn btn-primary btn-sm">import file</label>
@@ -128,7 +155,7 @@ textarea {
         <p id="json_warning" style="color: red;"></p>
         <textarea   id="json_input" cols="30" rows="10" placeholder='example { \n "key":"value", \n "key":"value" \n ...'> </textarea>
         <div class="btn-erea">
-            <button id="tocsv-btn" class="btn btn-primary"> convert to CSV</button>
+            <button id="tocsv-btn" class="btn btn-primary"> convert </button>
             <button class=" btn-primary btn-sm"  style="color: white;height: 33px;margin-top: 10px;margin-left: 10px;margin-right: 10px;" onClick="document.location.reload(true)"><i class="fas fa-undo-alt"></i></button>
             <input type="file" id="json_file" class="hide"  onchange="readJSON()">
             <label id="imp_json" for="json_file"  class="btn btn-primary btn-sm">import file</label>
